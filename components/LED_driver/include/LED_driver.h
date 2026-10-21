@@ -3,7 +3,7 @@
 #include <stdint.h>
 #include "sdkconfig.h"
 #include "BOARD_cfg.h"
-#include "driver/rmt.h"
+#include "esp_err.h"
 
 /**
  * @brief Enumeration of possible LED pulse modes.
@@ -68,13 +68,10 @@ typedef struct{
 //#define SRV_CLOCK 100
 //STRIP LED DEFINITIONS
 
-#define STRIP_LED_CHANNEL	0
-#define BITS_PER_LED_CMD 8
 #define STRIP_LED_COLOURS 3
 #define STRIP_LED_GPIO LED_WS_PIN
 
 #define LED_WS_RGB_COUNT 		(LED_WS_COUNT * STRIP_LED_COLOURS)
-#define LED_WS_BUFFER_ITEMS 	((LED_WS_COUNT * BITS_PER_LED_CMD * STRIP_LED_COLOURS))
 #define LED_ARRAY_SIZE 			(LED_WS_RGB_COUNT + LED_STD_COUNT + BUZZER_COUNT)
 #define BUZZER_ARRAY_POS 		(LED_WS_RGB_COUNT + LED_STD_COUNT)
 
